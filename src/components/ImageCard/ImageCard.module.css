@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 250px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.name,
+.number {
+  margin: 0;
+}
+
+.icon {
+  margin-right: 5px;
+}

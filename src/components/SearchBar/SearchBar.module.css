@@ -1,0 +1,48 @@
+.form {
+  width: 400px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.input {
+  width: 100%;
+  max-width: 300px;
+  height: 40px;
+
+  border-style: none;
+  border-bottom: 1px solid #212121;
+  background-color: transparent;
+
+  padding-left: 50px; /* Залишаємо достатньо місця для кнопки */
+  padding-right: 16px;
+  outline: none;
+
+  transition: var(--animation-cubicBezier);
+
+  font-size: var(--font-medium);
+  color: var(--color-dark);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+
+  &::placeholder {
+    font-weight: 200;
+  }
+}
+
+.button {
+  width: 20px;
+  height: 50px;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-dark);
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%); /* Вирівнювання по вертикалі кнопки */
+}
