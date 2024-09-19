@@ -1,7 +1,8 @@
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
+import { ImageGalleryProps } from "../App/App.types";
 
-const ImageGallery = ({ images, openModal }) => {
+const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
   return (
     <>
       <ul className={css.gridContainer}>
@@ -9,10 +10,17 @@ const ImageGallery = ({ images, openModal }) => {
           <ImageCard
             key={id}
             src={urls.small}
-            alt={alt_description}
+            alt={alt_description || ""}
             avgColor={avg_color}
             openModal={openModal}
-            imageData={{ urls: urls, alt_description: alt_description }}
+            imageData={{
+              id,
+              src: urls.small,
+              alt: alt_description || "",
+              urls: { small: urls.small },
+              alt_description: alt_description || "",
+              avg_color: avg_color,
+            }}
           />
         ))}
       </ul>

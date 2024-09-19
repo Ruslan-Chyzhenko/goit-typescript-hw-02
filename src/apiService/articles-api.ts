@@ -1,11 +1,15 @@
 import axios from "axios";
+import { UnsplashSearchResponse } from "../components/App/App.types";
 
-const API_KEY = "";
+const API_KEY = "k8i1H239r5K4ALBVTFvwlJvdYEUFhownQy3kYDvve-o";
 axios.defaults.baseURL = "https://api.unsplash.com/";
 axios.defaults.headers.common["Authorization"] = `Client-ID ${API_KEY}`;
 
-export const fetchImagesWithTopic = async (query, page = 1) => {
-  const { data } = await axios.get(`search/photos`, {
+export const fetchImagesWithTopic = async (
+  query: string,
+  page: number = 1
+): Promise<UnsplashSearchResponse> => {
+  const { data } = await axios.get<UnsplashSearchResponse>(`search/photos`, {
     params: {
       query,
       page,

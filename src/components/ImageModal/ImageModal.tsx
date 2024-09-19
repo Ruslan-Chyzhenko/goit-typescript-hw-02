@@ -1,5 +1,7 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
+import { ApiImageData } from "../App/App.types";
+import { ImageModalProps } from "../App/App.types";
 
 const customStyles = {
   content: {
@@ -17,14 +19,18 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({ isOpen, closeModal, imageData }) => {
+const ImageModal: React.FC<ImageModalProps> = ({
+  isOpen,
+  closeModal,
+  imageData,
+}) => {
   if (!imageData) return null;
 
   const {
     urls = {},
     alt_description = "",
     user = {},
-    likes = 0,
+    likes = {},
     description = "",
   } = imageData;
 

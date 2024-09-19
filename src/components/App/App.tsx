@@ -8,19 +8,23 @@ import SearchBar from "../SearchBar/SearchBar";
 import toast, { Toaster } from "react-hot-toast";
 import css from "../App/App.module.css";
 import ImageModal from "../ImageModal/ImageModal";
+import { UnsplashImage } from "../App/App.types";
+import { UnsplashSearchResponse } from "../App/App.types";
 
 const notify = () => toast("Here is your toast.");
 
 export default function App() {
-  let subtitle;
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [page, setPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [showBtn, setShowBtn] = useState(false);
+  let subtitle: HTMLElement | null = null;
+  const [images, setImages] = useState<UnsplashImage[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedImage, setSelectedImage] = useState<UnsplashImage | null>(
+    null
+  );
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [showBtn, setShowBtn] = useState<boolean>(false);
 
   useEffect(() => {
     if (!searchQuery) return;
@@ -28,11 +32,14 @@ export default function App() {
     const fetchImages = async () => {
       try {
         setLoading(true);
-        const data = await fetchImagesWithTopic(searchQuery, page);
+        const data: UnsplashSearchResponse = await fetchImagesWithTopic(
+          searchQuery,
+          page
+        );
         setImages((prevImages) => {
           return page === 1 ? data.results : [...prevImages, ...data.results];
         });
-        setShowBtn(data.total_pages && data.total_pages !== page);
+        setShowBtn(data.total_pages > page);
       } catch (error) {
         setError(true);
       } finally {
@@ -43,26 +50,27 @@ export default function App() {
     fetchImages();
   }, [searchQuery, page]);
 
-  const handleSearch = (query) => {
+  const handleSearch = (query: string): void => {
     setSearchQuery(query);
     setPage(1);
   };
 
-  const loadMoreImages = () => {
-    setPage((prevPage) => prevPage + 1);
+  const loadMoreImages = (): void => {
+    setPage((prevPage: number) => prevPage + 1);
   };
 
-  const openModal = (imageData) => {
+  const openModal = (imageData: UnsplashImage): void => {
     setSelectedImage(imageData);
     setIsOpen(true);
   };
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+  function afterOpenModal(): void {
+    if (subtitle) {
+      subtitle.style.color = "#f00";
+    }
   }
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setIsOpen(false);
     setSelectedImage(null);
   };

@@ -1,6 +1,13 @@
 import css from "./ImageCard.module.css";
+import { ImageCardProps } from "../App/App.types";
 
-const ImageCard = ({ src, alt, avgColor, openModal, imageData }) => {
+const ImageCard: React.FC<ImageCardProps> = ({
+  src,
+  alt,
+  avgColor,
+  openModal,
+  imageData,
+}) => {
   return (
     <>
       <li className={css.gridItem}>
