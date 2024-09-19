@@ -1,7 +1,6 @@
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
 import { ImageGalleryProps } from "../App/App.types";
-import { ImageData } from "../App/App.types";
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
   return (
@@ -19,17 +18,16 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
               src: urls.small,
               alt: alt_description || "",
               urls: {
-                raw: urls.raw || "", // Додайте всі потрібні поля
-                full: urls.full || "", // Додайте всі потрібні поля
-                regular: urls.regular || "", // Додайте всі потрібні поля
-                small: urls.small || "", // Додайте всі потрібні поля
+                raw: urls.raw || "",
+                full: urls.full || "",
+                regular: urls.regular || "",
+                small: urls.small || "",
                 thumb: urls.thumb || "",
               },
-              // urls,
               alt_description: alt_description || "",
               avg_color: avg_color || "",
               likes: likes || 0,
-              // description: description || "", // Додайте description
+              // description: description || "",
               user: {
                 id: user.id,
                 username: user.username,
