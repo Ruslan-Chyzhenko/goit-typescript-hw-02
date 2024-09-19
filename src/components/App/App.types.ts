@@ -1,7 +1,9 @@
 // Interface API for image
 export interface UnsplashImage {
+  src: string;
+  alt: string;
   id: string;
-  description: string | null;
+  //   description: string | null;
   alt_description: string | null;
   urls: {
     raw: string;
@@ -10,6 +12,7 @@ export interface UnsplashImage {
     small: string;
     thumb: string;
   };
+  avg_color?: string;
   user: {
     id: string;
     username: string;
@@ -27,14 +30,24 @@ export interface UnsplashSearchResponse {
 
 // ImageData App
 export interface ImageData {
-  id: string;
   src: string;
   alt: string;
+  id: string;
+  //   description: string | null;
+  alt_description: string | null;
   urls: {
+    raw: string;
+    full: string;
+    regular: string;
     small: string;
+    thumb: string;
   };
-  alt_description: string;
-  avg_color: string;
+  avg_color?: string;
+  user: {
+    id: string;
+    username: string;
+    name: string;
+  };
   likes?: number;
 }
 
