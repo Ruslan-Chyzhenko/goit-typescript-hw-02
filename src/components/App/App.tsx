@@ -75,26 +75,26 @@ export default function App() {
     setSelectedImage(null);
   };
 
-  // return (
-  //   <div className={css.appContainer}>
-  //     <h1 className={css.mainTitle}>Gallery</h1>
-  //     <SearchBar onSearch={handleSearch} />
-  //     {loading && <Loader />}
-  //     {error && <ErrorMessage />}
-  //     {images.length > 0 && (
-  //       <ImageGallery images={images} openModal={openModal} />
-  //     )}
-  //     {showBtn && (
-  //       <LoadMoreBtn onClick={loadMoreImages} className={css.loadMoreBtn} />
-  //     )}
-  //     <ImageModal
-  //       isOpen={isOpen}
-  //       onAfterOpen={afterOpenModal}
-  //       closeModal={closeModal}
-  //       imageData={selectedImage}
-  //     />
-  //     <button onClick={notify}>Make me a toast</button>
-  //     <Toaster />
-  //   </div>
-  // );
+  return (
+    <div className={css.appContainer}>
+      <h1 className={css.mainTitle}>Gallery</h1>
+      <SearchBar onSearch={handleSearch} />
+      {loading && <Loader />}
+      {error && <ErrorMessage />}
+      {images.length > 0 && (
+        <ImageGallery images={images} openModal={openModal} />
+      )}
+      {showBtn && (
+        <LoadMoreBtn onClick={loadMoreImages} className={css.loadMoreBtn} />
+      )}
+      <ImageModal
+        isOpen={isOpen}
+        onAfterOpen={afterOpenModal}
+        closeModal={closeModal}
+        imageData={selectedImage}
+      />
+      <button onClick={notify}>Make me a toast</button>
+      <Toaster />
+    </div>
+  );
 }
