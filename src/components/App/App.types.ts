@@ -15,6 +15,7 @@ export interface UnsplashImage {
     username: string;
     name: string;
   };
+  likes?: number;
 }
 
 // Interface answer from API
@@ -29,12 +30,12 @@ export interface ImageData {
   id: string;
   src: string;
   alt: string;
-  // add
   urls: {
     small: string;
   };
   alt_description: string;
   avg_color: string;
+  likes?: number;
 }
 
 // ImageData Api
@@ -42,7 +43,7 @@ export interface ApiImageData {
   urls: {
     regular?: string;
   };
-  alt_description?: string;
+  alt_description?: string | null;
   user: {
     name?: string;
     bio?: string;
@@ -51,7 +52,7 @@ export interface ApiImageData {
     };
   };
   likes?: number;
-  description?: string;
+  description?: string | null;
 }
 
 // ImageCard
@@ -81,13 +82,14 @@ export interface ImageModalProps {
   onAfterOpen: () => void;
   closeModal: () => void;
   //   imageData?: UnsplashImage | null;
-  imageData?: ApiImageData;
+  imageData?: ApiImageData | null;
 }
 
 export interface LoadMoreBtnProps {
   children?: React.ReactNode;
   onClick: () => void;
   disabled?: boolean;
+  className?: string;
 }
 
 export interface SearchBarProps {

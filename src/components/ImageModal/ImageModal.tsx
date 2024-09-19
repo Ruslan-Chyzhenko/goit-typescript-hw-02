@@ -45,7 +45,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
     >
       <img
         src={urls.regular || ""}
-        alt={description || alt_description}
+        alt={description || alt_description || ""}
         className={css.image}
       />
       <div className={css.details}>

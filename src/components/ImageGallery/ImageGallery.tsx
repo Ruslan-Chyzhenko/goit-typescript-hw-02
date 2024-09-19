@@ -6,7 +6,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
   return (
     <>
       <ul className={css.gridContainer}>
-        {images.map(({ id, urls, alt_description, avg_color }) => (
+        {images.map(({ id, urls, alt_description, avg_color, likes }) => (
           <ImageCard
             key={id}
             src={urls.small}
@@ -21,7 +21,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
               urls,
               alt_description: alt_description || "",
               avg_color: avg_color,
-              // likes: user.likes || 0,
+              likes: likes || 0,
             }}
           />
         ))}
