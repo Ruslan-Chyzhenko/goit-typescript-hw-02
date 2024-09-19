@@ -17,9 +17,11 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
               id,
               src: urls.small,
               alt: alt_description || "",
-              urls: { small: urls.small },
+              // urls: { small: urls.small },
+              urls,
               alt_description: alt_description || "",
               avg_color: avg_color,
+              // likes: user.likes || 0,
             }}
           />
         ))}

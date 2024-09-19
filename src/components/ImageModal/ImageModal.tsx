@@ -30,9 +30,9 @@ const ImageModal: React.FC<ImageModalProps> = ({
     urls = {},
     alt_description = "",
     user = {},
-    likes = {},
+    likes = 0,
     description = "",
-  } = imageData;
+  } = imageData || {};
 
   return (
     <Modal
@@ -51,7 +51,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
       <div className={css.details}>
         <h2>{description || alt_description}</h2>
         <p>Autor: {user.name || "Unknown"}</p>
-        <p>Likes: {} </p>
+        <p>Likes: {likes} </p>
         {user.bio && <p>About: {user.bio}</p>}
         <a
           href={user.links?.html || "#"}

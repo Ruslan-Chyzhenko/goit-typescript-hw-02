@@ -63,10 +63,12 @@ export interface ImageCardProps {
   imageData: ImageData;
 }
 
-export type OpenModal = (imageData: {
-  urls: { small: string };
-  alt_description: string;
-}) => void;
+export type OpenModal = (imageData: UnsplashImage) => void;
+
+// export type OpenModal = (imageData: {
+//   urls: { small: string };
+//   alt_description: string;
+// }) => void;
 
 export interface ImageGalleryProps {
   images: ImageData[];
@@ -78,6 +80,7 @@ export interface ImageModalProps {
   isOpen: boolean;
   onAfterOpen: () => void;
   closeModal: () => void;
+  //   imageData?: UnsplashImage | null;
   imageData?: ApiImageData;
 }
 
