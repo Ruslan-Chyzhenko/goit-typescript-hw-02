@@ -70,11 +70,23 @@ export type OpenModal = (imageData: {
 
 export interface ImageGalleryProps {
   images: ImageData[];
-  openModal: OpenModal;
+  openModal: (imageData: ImageData) => void;
+  //   openModal: OpenModal;
 }
 
 export interface ImageModalProps {
   isOpen: boolean;
+  onAfterOpen: () => void;
   closeModal: () => void;
-  imageData?: ImageData;
+  imageData?: ApiImageData;
+}
+
+export interface LoadMoreBtnProps {
+  children?: React.ReactNode;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
+export interface SearchBarProps {
+  onSearch: (query: string) => void;
 }

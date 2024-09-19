@@ -1,15 +1,17 @@
 import css from "./SearchBar.module.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import toast from "react-hot-toast";
+import { SearchBarProps } from "../App/App.types";
 
-export default function SearchBar({ onSearch }) {
-  const [query, setQuery] = useState("");
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+  const [query, setQuery] = useState<string>("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!query.trim()) {
       return toast.error("Please enter a search query!");
@@ -38,4 +40,6 @@ export default function SearchBar({ onSearch }) {
       </form>
     </header>
   );
-}
+};
+
+export default SearchBar;

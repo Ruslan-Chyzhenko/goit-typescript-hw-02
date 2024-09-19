@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
-import { ApiImageData } from "../App/App.types";
+// import { ApiImageData } from "../App/App.types";
 import { ImageModalProps } from "../App/App.types";
 
 const customStyles = {
@@ -51,7 +51,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
       <div className={css.details}>
         <h2>{description || alt_description}</h2>
         <p>Autor: {user.name || "Unknown"}</p>
-        <p>Likes: {likes}</p>
+        <p>Likes: {} </p>
         {user.bio && <p>About: {user.bio}</p>}
         <a
           href={user.links?.html || "#"}
